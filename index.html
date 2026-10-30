@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Divya!</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Star Background -->
+  <div class="stars-bg"></div>
+
+  <!-- Audio Element -->
+  <audio id="bdaySong" src="birthday.mp3" loop preload="auto" playsinline></audio>
+
+  <!-- Auto-Unlock Entry Screen Overlay -->
+  <div class="welcome-overlay" id="welcomeOverlay" onclick="startExperience()">
+    <div class="welcome-box">
+      <div class="envelope-icon">💌</div>
+      <h2>A Special Birthday Surprise</h2>
+      <p>Tap anywhere to open card & play song</p>
+      <button class="open-card-btn">Open Card ✨</button>
+    </div>
+  </div>
+
+  <!-- Floating Audio Toggle Button -->
+  <button class="music-toggle-btn" id="musicBtn" onclick="toggleAudio()">
+    ⏸️ Pause Song
+  </button>
+
+  <main class="main-card">
+    <!-- Left Stage: Lush Heart Tree Canvas & 3D Interactive Cake -->
+    <div class="left-stage">
+      <canvas id="treeCanvas"></canvas>
+      
+      <!-- Interactive Cake Section -->
+      <div class="cake-container" id="cakeSection" title="Click on the cake to blow candles!">
+        <div class="candles-row">
+          <div class="candle">
+            <div class="flame flame-1"></div>
+            <div class="smoke"></div>
+          </div>
+          <div class="candle">
+            <div class="flame flame-2"></div>
+            <div class="smoke"></div>
+          </div>
+          <div class="candle">
+            <div class="flame flame-3"></div>
+            <div class="smoke"></div>
+          </div>
+        </div>
+
+        <div class="cake-layer layer-top">
+          <div class="frosting-drops">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="cake-layer layer-bottom">
+          <div class="frosting-drops">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="cake-plate"></div>
+        <p class="cake-hint">🎂 Tap cake to blow candles & make a wish!</p>
+      </div>
+    </div>
+
+    <!-- Right Stage: Divya's Slideshow & Greetings -->
+    <div class="right-stage">
+      <div class="glow-disc"></div>
+
+      <!-- Photo Frame Slideshow -->
+      <div class="photo-frame-wrapper">
+        <div class="floating-badge">✨ Birthday Girl</div>
+        <div class="photo-frame" id="photoFrame" onclick="manualNextPhoto()">
+          <div class="slide active">
+            <img src="photo1.jpg" alt="Divya Photo 1" />
+          </div>
+          <div class="slide">
+            <img src="photo2.jpg" alt="Divya Photo 2" />
+          </div>
+          <div class="slide">
+            <img src="photo3.jpg" alt="Divya Photo 3" />
+          </div>
+          <div class="slide">
+            <img src="photo4.jpg" alt="Divya Photo 4" />
+          </div>
+
+          <div class="slide-indicators">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="wish-text-wrapper">
+        <h3 class="sub-greeting">and... make it count</h3>
+        <h1 class="main-name">Happy Birthday, <span class="highlight-name">Divya</span>!</h1>
+        <p class="tagline">"Here's to a year filled with blossoming dreams, endless smiles, and beautiful memories."</p>
+
+        <!-- Buttons -->
+        <div class="btn-group">
+          <button class="celebrate-btn" onclick="launchCelebration()">
+            🎉 Celebrate Divya!
+          </button>
+          <button class="wish-btn" onclick="openSurpriseLetter()">
+            💌 Open Wish Card
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Popup Wish Card Modal -->
+  <div class="wish-modal" id="wishModal" onclick="closeSurpriseLetter(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeSurpriseLetter()">&times;</button>
+      <h2>Happy Birthday Divya! 🌸🎂</h2>
+      <p>
+        May your journey ahead be as bright and colorful as this blooming heart tree. 
+        May every candle you blow bring happiness, success, good health, and peace into your life!
+        May you always keep smiling, keep shining, and never lose the beautiful spark that makes you so special.✨
+        Aur apna dhyaan rakha karo yaar aur jyda gussa mat kiya karo devi😃😀.
+      </p>
+      <div class="signature">Have a fantastic celebration! ❤️✨</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
